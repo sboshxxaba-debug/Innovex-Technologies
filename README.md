@@ -1,63 +1,45 @@
 # Innovex Technologies — Website
 
-A modern, self-contained website for **Innovex Technologies (PTY) LTD** (Pietermaritzburg).
-It ships with an **AppShell** switcher (bottom of the screen) that lets you preview **three complete designs** and pick the one you want:
+A modern one-page website for **Innovex Technologies (PTY) LTD** (Pietermaritzburg), built on the **Aurora** design and skinned to your brand colours.
 
-| Design | Feel | Palette |
-|--------|------|---------|
-| **Aurora** | Dark, futuristic, glassmorphic (your dark + accent style) | Indigo / violet / cyan |
-| **Meridian** | Light, editorial, corporate & trustworthy | Teal / amber on white |
-| **Pulse** | Bold, vibrant, colour-blocked bento | Blue / lime / coral |
+- **Petrol teal** `#073235` / `#0C4E52` base · **mint accent** `#3CDAAC`
+- Your logo is embedded directly in the page (no separate image file needed)
+- Self-contained `index.html` — no build step, no dependencies. Fonts load from Google Fonts.
 
-No build step, no dependencies — one `index.html`. Fonts load from Google Fonts.
+`innovex-logo.png` is the cropped/optimised logo, included for reuse (social, email signatures, etc.).
 
 ---
 
 ## 1. Deploy to Vercel
 
-**Option A — GitHub (recommended)**
-1. Create a new GitHub repo and push these files (`index.html`, `README.md`, `vercel.json`).
-2. Go to [vercel.com](https://vercel.com) → **Add New… → Project** → import the repo.
-3. Framework preset: **Other**. No build command needed. Click **Deploy**.
+**GitHub (recommended)**
+1. Push these files to a new GitHub repo (`index.html`, `vercel.json`, `README.md`).
+2. [vercel.com](https://vercel.com) → **Add New… → Project** → import the repo.
+3. Framework preset: **Other**. No build command. **Deploy**.
 
-**Option B — Vercel CLI**
+**CLI**
 ```bash
 npm i -g vercel
 cd innovex-site
-vercel          # follow prompts for a preview
-vercel --prod   # publish to production
+vercel --prod
 ```
 
-## 2. Connect your domain (innovextechnologies.co.za)
+## 2. Connect your domain
 
-1. In the Vercel project → **Settings → Domains → Add** → enter `innovextechnologies.co.za` (and `www.innovextechnologies.co.za`).
-2. Vercel will show DNS records. At your `.co.za` registrar, set:
-   - **A record** `@` → `76.76.21.21` *(Vercel shows the exact value — use theirs)*
-   - **CNAME** `www` → `cname.vercel-dns.com`
-3. Wait for DNS to propagate (minutes to a couple of hours). Vercel issues HTTPS automatically.
+1. Vercel project → **Settings → Domains → Add** → `innovextechnologies.co.za` and `www.innovextechnologies.co.za`.
+2. At your `.co.za` registrar, add the DNS records Vercel shows (typically an **A** record for `@` and a **CNAME** for `www` → `cname.vercel-dns.com`).
+3. HTTPS is issued automatically once DNS resolves.
 
-## 3. Pick ONE design for production (optional)
+## 3. Make the contact form send real emails
 
-The switcher is great for choosing. Once you've decided, you can lock it:
+The form currently opens the visitor's mail app addressed to `hello@innovextechnologies.co.za` (a `mailto:` fallback, no backend needed). To capture submissions directly, create a free endpoint at [formspree.io](https://formspree.io) and post the form's `FormData` to it inside the `form[data-contact]` handler in `index.html`.
 
-- **Quick way:** in `index.html`, find `setDesign(initial||'aurora',false)` and change `'aurora'` to `'meridian'` or `'pulse'`. Then delete the whole `<div class="appshell">…</div>` block to hide the switcher.
-- You can also test any design live via URL: `?design=meridian` or `?design=pulse`.
+## 4. Customise
 
-> Tell me which one you like and I'll produce a clean, single-design version (and, if you want, a full **Next.js** project).
-
-## 4. Make the contact form send real emails
-
-Right now the form opens the visitor's email app addressed to `hello@innovextechnologies.co.za` (a `mailto:` fallback that needs no backend). To receive submissions directly:
-
-1. Create a free form endpoint at [formspree.io](https://formspree.io) (or use a Vercel serverless function).
-2. In `index.html`, find the `form[data-contact]` submit handler and post the `FormData` to your endpoint instead of building the `mailto:` link.
-
-## 5. Things to customise
-
-- **Email:** currently `hello@innovextechnologies.co.za` — set up this mailbox (Microsoft 365 / Google Workspace / registrar mail).
-- **WhatsApp:** `083 317 2092` (links to `wa.me/27833172092`).
-- **Services & copy:** edit the `SERVICES`, `WHY`, and `STEPS` arrays in the `<script>` — content updates all three designs at once.
-- **Logo:** a lightweight "ix" monogram favicon is embedded. Swap in your real logo when ready.
+- **Email:** set up the `hello@` mailbox (Microsoft 365 / Google Workspace / registrar mail).
+- **WhatsApp:** `083 317 2092` → links to `wa.me/27833172092`.
+- **Services & copy:** edit the `SERVICES` and `WHY` arrays in the `<script>`.
+- **Logo:** embedded as a data URI in the hero, plus an SVG pulse mark in the nav/footer and favicon. Re-export from `innovex-logo.png` if you refine the brand.
 
 ---
 *Innovating today, empowering tomorrow.*
