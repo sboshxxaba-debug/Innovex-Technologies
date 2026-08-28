@@ -62,8 +62,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
 .nav{position:sticky;top:0;z-index:50;background:rgba(7,50,53,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav__inner{display:flex;align-items:center;justify-content:space-between;height:74px}
 .navlinks{display:flex;gap:30px;align-items:center}
-.navlinks a{color:var(--muted);font-size:15px;font-weight:500;transition:color .2s}
-.navlinks a:hover{color:var(--ink)}
+.navlinks a:not(.btn){color:var(--muted);font-size:15px;font-weight:500;transition:color .2s}
+.navlinks a:not(.btn):hover{color:var(--ink)}
 .navtoggle{display:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);color:var(--ink)}
 
 /* hero */
