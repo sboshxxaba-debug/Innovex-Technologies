@@ -241,7 +241,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--a2)}
 </div></footer>
 
 <script>
-var CONTACT={email:"hello@innovextechnologies.co.za",whatsapp:"083 317 2092",location:"Pietermaritzburg, KwaZulu-Natal"};
+var CONTACT={email:"sboshx.xaba@gmail.com",whatsapp:"079 253 7405",location:"Pietermaritzburg, KwaZulu-Natal"};
 var ICONS={
   support:'<path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>',
   managed:'<path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/>',
@@ -277,7 +277,7 @@ document.getElementById('svc-grid').innerHTML=SERVICES.map(function(s){return '<
 document.getElementById('why-list').innerHTML=WHY.map(function(w){return '<li><span class="chk">'+chk()+'</span><span><b>'+w.t+'</b> — '+w.d+'</span></li>';}).join('');
 document.getElementById('cinfo').innerHTML=(function(){
   var mail='<a href="mailto:'+CONTACT.email+'"><span class="ic">'+svg(ICONS.consult)+'</span><span><small>Email</small><b>'+CONTACT.email+'</b></span></a>';
-  var wa='<a href="https://wa.me/27833172092" target="_blank" rel="noopener"><span class="ic">'+svg('<path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/>')+'</span><span><small>WhatsApp</small><b>'+CONTACT.whatsapp+'</b></span></a>';
+  var wa='<a href="https://wa.me/27792537405" target="_blank" rel="noopener"><span class="ic">'+svg('<path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/>')+'</span><span><small>WhatsApp</small><b>'+CONTACT.whatsapp+'</b></span></a>';
   var loc='<div><span class="ic">'+svg('<path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>')+'</span><span><small>Location</small><b>'+CONTACT.location+'</b></span></div>';
   return mail+wa+loc;
 })();
